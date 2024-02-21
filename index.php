@@ -1,7 +1,8 @@
 <?php 
 include './includes/header.php' ?>
 
-<form action="traitement.php" id="reservation" method="POST">
+<form action="traitement.php" id="inscription" method="POST">
+    <fieldset id="reservation">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>

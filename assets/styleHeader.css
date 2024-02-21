@@ -14,10 +14,7 @@
     display: none;
 }
 
-.invisible{
+.visible{
     display: block;
 }
 
-#pass1jourDate, #pass2joursDate, #tarifReduitdiv {
-    display: none;
-}

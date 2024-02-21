@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire de réservation Music Vercos Festival</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <form action="traitement.php" id="inscription" method="POST">
-    <fieldset id="reservation">
+<?php 
+include './includes/header.php' ?>
+
+<form action="traitement.php" id="reservation" method="POST">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -17,6 +10,8 @@
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
 
       <h3>Choisissez votre formule :</h3>
+
+      <div id="tarifNormal">
       <input type="checkbox" name="passSelection" id="pass1jour">
       <label for="pass1jour">Pass 1 jour : 40€</label>
 
@@ -52,7 +47,17 @@
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
       <input type="checkbox" name="passSelection" id="pass3joursreduit">
       <label for="pass3joursreduit">Pass 3 jours : 65€</label>
+      </div>
 
+      <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
+    <div id="tarifReduitdiv">
+      <input type="checkbox" name="passSelection" id="pass1jourreduit">
+      <label for="pass1jourreduit">Pass 1 jour : 25€</label>
+      <input type="checkbox" name="passSelection" id="pass2joursreduit">
+      <label for="pass2joursreduit">Pass 2 jours : 50€</label>
+      <input type="checkbox" name="passSelection" id="pass3joursreduit">
+      <label for="pass3joursreduit">Pass 3 jours : 65€</label>
+    </div>
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
       <p class="bouton" onclick="suivant('option')">Suivant</p>
@@ -115,5 +120,4 @@
   </form>
 
 </body>
-<script
 </html>

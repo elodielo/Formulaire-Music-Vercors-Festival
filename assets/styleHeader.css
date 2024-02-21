@@ -1,0 +1,23 @@
+#logo{
+    width: 15%;
+}
+
+#enTete{
+    background-color: beige;
+}
+
+.flexLigne{
+    display: flex;
+}
+
+.invisible{
+    display: none;
+}
+
+.invisible{
+    display: block;
+}
+
+#pass1jourDate, #pass2joursDate, #tarifReduitdiv {
+    display: none;
+}

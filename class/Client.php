@@ -14,11 +14,63 @@ class Client{
         $this->email = $email;
         $this->telephone = $telephone;
         $this->adresse = $adresse;
-        $this->id = this->idAleatoire();
+        $this->id = $this->idAleatoire();
     }
 
     private function idAleatoire(){
-        return Math.floor(Math.random() * 100000000)
+        $min = 0;
+        $max = 10000000;
+        return rand($min,$max);
+    }
+
+    function getNom(){
+        return $this->nom;
+    }
+
+    function setNom($nom){
+        $this->nom = $nom;
+    } 
+
+    function getPrenom(){
+        return $this->prenom;
+    }
+
+    function setPrenom($prenom){
+        $this->prenom = $prenom;
+    } 
+
+    function getEmail(){
+        return $this->email;
+    }
+
+    function setEmail($email){
+        $this->email = $email;
+    } 
+
+    function getTelephone(){
+        return $this->telephone;
+    }
+
+    function setTelephone($telephone){
+        $this->telephone = $telephone;
+    } 
+
+    function getAdresse(){
+        return $this->adresse;
+    }
+
+    function setAdresse($adresse){
+        $this->adresse = $adresse;
+    } 
+    
+    function ValeursClientsDansTableau(){
+        return [
+            $this->getNom(),
+            $this->getPrenom(),
+            $this->getEmail(),
+            $this->getTelephone(),
+            $this->getAdresse(),
+        ];
     }
 
 }

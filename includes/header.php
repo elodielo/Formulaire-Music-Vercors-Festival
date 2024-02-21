@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../assets/styleHeader.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js" type="module"></script>
+  <!-- <script defer src="scriptVerificationChamps.js" type="module"></script> -->
   <title>Formulaire de réservation Music Vercos Festival</title>
 </head>
 <header>

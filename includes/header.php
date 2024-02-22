@@ -13,12 +13,15 @@
     <div id="enTete" class="flexLigne" > 
       <img id="logo" src="./Images/logo.png" alt="logo montagne"> 
       <h1> Music Vercors Festival </h1>
-    
-      
-    
-    
     </div>
-
+    <div>
+      <?php if (isset($_SESSION['connecté'])) { ?>
+        <a href="deconnexion.php">Déconnexion</a>
+      <?php } else { ?>
+        <a href="index.php">Réservation</a>
+        <a href="connexion.php">Connexion</a>
+      <?php } ?>
+    </div>
   </header>
 
 <body>

@@ -2,7 +2,7 @@
 
 require './class/Client.php';
 require './class/Reservations.php';
-// require './class/dataBase.php';
+ require './class/dataBase.php';
 
 var_dump($_POST);
 
@@ -95,11 +95,11 @@ if (isset($_POST['nombrePlaces'])
     }
 
     $reservation = new Reservation($nbrReservation, $tarif, $joursChoisis,$nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges);
-    // $client = new Client($nom, $prenom, $email, $telephone, $adresse); 
+     $client = new Client($nom, $prenom, $email, $telephone, $adresse); 
     $reservation->calculPrixFestival();
     var_dump($tarif);
     // var_dump($client);
     var_dump($reservation);
-            // $SaveClient = $dataBase->enregistrerClient($client);
+             $SaveClient = $Database->enregistrerClient($client);
       // var_dump($client);
   }

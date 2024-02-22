@@ -6,6 +6,7 @@ let tarifReduitdiv = document.getElementById("tarifReduitdiv");
 let boutonTarifReduit = document.getElementById("tarifReduit");
 let bouton1jour = document.getElementById("pass1jour");
 let bouton2jours = document.getElementById("pass2jours");
+let bouton3jours = document.getElementById("pass3jours");
 let bouton1jourReduit = document.getElementById("pass1jourreduit")
 let bouton2joursReduits = document.getElementById("pass2joursreduit")
 
@@ -105,9 +106,37 @@ bouton2joursReduits.addEventListener("click", (event) => {
 
 // Si pass1jourCoché :
 bouton1jour.addEventListener("click", (event) => {
-  if(bouton1jour.checked){
-  }});
+  if(bouton1jour.checked){  
+    bouton2jours.disabled = true;
+    bouton3jours.disabled = true;
+  }
+  if(bouton1jour.checked == false){
+    bouton2jours.disabled = false;
+    bouton3jours.disabled = false;
+  }
+});
 
+bouton2jours.addEventListener("click", (event) => {
+  if(bouton2jours.checked){  
+    bouton1jour.disabled = true;
+    bouton3jours.disabled = true;
+  }
+  if(bouton2jours.checked == false){
+    bouton1jour.disabled = false;
+    bouton3jours.disabled = false;
+  }
+});
+
+bouton3jours.addEventListener("click", (event) => {
+  if(bouton3jours.checked){  
+    bouton1jour.disabled = true;
+    bouton2jours.disabled = true;
+  }
+  if(bouton3jours.checked == false){
+    bouton1jour.disabled = false;
+    bouton2jours.disabled = false;
+  }
+});
 
 
 

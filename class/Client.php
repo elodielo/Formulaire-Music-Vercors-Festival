@@ -7,21 +7,16 @@ class Client{
     private $telephone;
     private $adresse;
 
-    function __construct($nom, $prenom, $email, $telephone, $adresse)
+    function __construct($nom, $prenom, $email, $telephone, $adresse, $id = "à créer")
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->telephone = $telephone;
         $this->adresse = $adresse;
-        $this->id = $this->idAleatoire();
+        $this->setId($id);
     }
 
-    private function idAleatoire(){
-        $min = 0;
-        $max = 10000000;
-        return rand($min,$max);
-    }
 
     function getNom(){
         return $this->nom;
@@ -62,9 +57,45 @@ class Client{
     function setAdresse($adresse){
         $this->adresse = $adresse;
     } 
+
+    function getId(){
+        return $this->id;
+    }
+
+    public function setId(int|string $id){
+        if (is_string($id) && $id === "à créer") {
+          $this->id = $this->CreerNouvelId();
+        }else {
+          $this->id = $id;
+        }}
+
+        private function CreerNouvelId(){
+            $Database = new Database();
+            $utilisateurs = $Database->getAllUtilisateurs();
+        
+            $IDs = [];
+        
+            foreach($utilisateurs as $utilisateur){
+              $IDs[] = $utilisateur->getId();
+            }
+        
+            $i = 1;
+            $unique = false;
+            while ($unique === false) {
+              if (in_array($i, $IDs)) {
+                $i ++;
+              } else {
+                $unique = true;
+              }
+            }
+            return $i;
+          }
+    
+
     
     function ValeursClientsDansTableau(){
         return [
+            $this->getId(),
             $this->getNom(),
             $this->getPrenom(),
             $this->getEmail(),

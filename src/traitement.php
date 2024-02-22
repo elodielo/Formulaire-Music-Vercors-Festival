@@ -19,7 +19,7 @@ if (isset($_POST['nombrePlaces'])
     $adresse = $_POST['adresse'];
 
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $mail = htmlspecialchars($_POST['email']);
+        $email = htmlspecialchars($_POST['email']);
       }else {
         header('location:../index.php?erreur=');
       }

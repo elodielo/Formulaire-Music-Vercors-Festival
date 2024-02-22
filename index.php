@@ -1,5 +1,14 @@
 <?php 
+session_start();
+
+$code_erreur = null;
+if (isset($_GET['erreur'])) {
+  $code_erreur = (int) $_GET['erreur'];
+}
+
+
 include './includes/header.php' ?>
+
 
 <form action="traitement.php" id="inscription" method="POST">
     <fieldset id="reservation">
@@ -102,14 +111,20 @@ include './includes/header.php' ?>
         <input type="text" name="prenom" id="prenom" required>
         <label for="email">Email :</label>
         <input type="email" name="email" id="email" required>
+        <?php if ($code_erreur === 1) { ?>
+    <div class="message echec">
+      L'Email n'est pas valide.
+    </div>
+  <?php } ?>
         <label for="telephone">Téléphone :</label>
         <input type="text" name="telephone" id="telephone" required>
         <label for="adressePostale">Adresse Postale :</label>
         <input type="text" name="adressePostale" id="adressePostale" required>
-
+       
         <input type="submit" name="soumission" class="bouton" value="Réserver" onclick="verifierFormulaire()">
     </fieldset>
   </form>
 
 </body>
+
 </html>

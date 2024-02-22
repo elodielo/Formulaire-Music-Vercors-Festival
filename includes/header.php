@@ -13,6 +13,10 @@
     <div id="enTete" class="flexLigne" > 
       <img id="logo" src="./Images/logo.png" alt="logo montagne"> 
       <h1> Music Vercors Festival </h1>
+    
+      
+    
+    
     </div>
 
   </header>

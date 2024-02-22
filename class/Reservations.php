@@ -83,5 +83,17 @@ class Reservation{
         echo($PrixTotal);
     }
     
+    function ValeursReservationsDansTableau(){
+        return [
+           "nbrResa" => $this->getNbrReservation(),
+           "tarif" => $this->getTarif(),
+           "joursChoisis" => $this->getjoursChoisis(),
+           "nbrTentes" => $this->getnbrTentes(),
+            "nbrCamions" => $this->getnbrCamions(),
+            "nbrEnfants" => $this->getnbrEnfants(),
+            "nbrCasques" => $this->getnbrCasques(),
+            "nbrLuges" => $this->getnbrLuges(),
+        ];
+    }
     
 }

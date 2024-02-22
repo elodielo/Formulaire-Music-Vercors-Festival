@@ -10,10 +10,6 @@ let bouton1jourReduit = document.getElementById("pass1jourreduit")
 let bouton2joursReduits = document.getElementById("pass2joursreduit")
 
 
-if (tarifReduitCase.checked) {
-    tarifNormal.style.backgroundColor = "green";
-}
-
 let reserv = document.getElementById('reservation');
 let option = document.getElementById('options');
 let coordonnee = document.getElementById('coordonnees');
@@ -105,6 +101,14 @@ bouton2joursReduits.addEventListener("click", (event) => {
     pass2joursDate.classList.replace("invisible", "visible")}
   else{pass2joursDate.classList.replace("visible", "invisible")}
 });
+
+
+// Si pass1jourCoché :
+bouton1jour.addEventListener("click", (event) => {
+  if(bouton1jour.checked){
+  }});
+
+
 
 
 // function verifierFormulaire{

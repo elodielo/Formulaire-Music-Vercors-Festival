@@ -2,7 +2,8 @@
 
 require './class/Client.php';
 require './class/Reservations.php';
- require './class/dataBase.php';
+require './class/dataBase.php';
+include './class/Db.php';
 
 var_dump($_POST);
 
@@ -22,7 +23,7 @@ if (isset($_POST['nombrePlaces'])
     $tarif= 0;
     $nbrTentes=0;
     $nbrCamions= 0;
-    $nbrCasques = (int)$_POST['nombreCasquesEnfants'];
+    $nbrCasques = (int)$_POST['nombreCasquesEnfants']*2;
     $nbrLuges = $_POST['NombreLugesEte'];
     $joursChoisis ="";
     $nbrEnfants= "non";
@@ -70,21 +71,29 @@ if (isset($_POST['nombrePlaces'])
 
     if(isset($_POST['tenteNuit1'])){
       $nbrTentes += 5;
-    } elseif (isset($_POST['tenteNuit2'])) {
+    }
+    if (isset($_POST['tenteNuit2'])) {
       $nbrTentes += 5;
-    }elseif (isset($_POST['tenteNuit3'])) {
+    }
+    if (isset($_POST['tenteNuit3'])) {
       $nbrTentes += 5;
-    }elseif (isset($_POST['tente3Nuits'])) {
+    }
+    if (isset($_POST['tente3Nuits'])) {
       $nbrTentes += 12;
     }
 
     if(isset($_POST['vanNuit1'])){
       $nbrCamions = +5;
-    } elseif (isset($_POST['vanNuit2'])) {
+    } 
+    if (isset($_POST['vanNuit2'])) {
       $nbrCamions += 5;
-    }elseif (isset($_POST['vanNuit3'])) {
+    }
+
+    if (isset($_POST['vanNuit3'])) {
       $nbrCamions += 5;
-    }elseif (isset($_POST['van3Nuits'])) {
+    }
+    
+    if (isset($_POST['van3Nuits'])) {
       $nbrCamions += 12;
     }
 
@@ -97,9 +106,14 @@ if (isset($_POST['nombrePlaces'])
     $reservation = new Reservation($nbrReservation, $tarif, $joursChoisis,$nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges);
      $client = new Client($nom, $prenom, $email, $telephone, $adresse); 
     $reservation->calculPrixFestival();
+    $dataBaseClient = new Database();
+    $dataBaseResa = new Db('./csv/reservation.csv');
     var_dump($tarif);
-    // var_dump($client);
+    var_dump($client);
     var_dump($reservation);
-             $SaveClient = $Database->enregistrerClient($client);
+    $SaveClient = $dataBaseClient->enregistrerClient($client);
+    $csvResa = $dataBaseResa->openCsv();
+    $saveReservation = $dataBaseResa->writeIntoCsv($csvResa, $reservation->ValeursReservationsDansTableau());
+  
       // var_dump($client);
   }

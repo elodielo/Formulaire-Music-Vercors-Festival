@@ -1,13 +1,13 @@
 <?php 
 class Client{
-    private $id;
+    private $_id;
     private $nom;
     private $prenom;
     private $email;
     private $telephone;
     private $adresse;
 
-    function __construct($nom, $prenom, $email, $telephone, $adresse, $id = "à créer")
+    function __construct($nom, $prenom, $email, $telephone, $adresse,int|string $id = "à créer")
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -58,15 +58,15 @@ class Client{
         $this->adresse = $adresse;
     } 
 
-    function getId(){
-        return $this->id;
-    }
-
-    public function setId(int|string $id){
+    public function getId(){
+        return $this->_id;
+      }
+    
+      public function setId(int|string $id){
         if (is_string($id) && $id === "à créer") {
-          $this->id = $this->CreerNouvelId();
+          $this->_id = $this->CreerNouvelId();
         }else {
-          $this->id = $id;
+          $this->_id = $id;
         }}
 
         private function CreerNouvelId(){
@@ -95,12 +95,12 @@ class Client{
     
     function ValeursClientsDansTableau(){
         return [
-            $this->getId(),
-            $this->getNom(),
-            $this->getPrenom(),
-            $this->getEmail(),
-            $this->getTelephone(),
-            $this->getAdresse(),
+           "id" => $this->getId(),
+           "nom" => $this->getNom(),
+           "prenom" => $this->getPrenom(),
+           "email" => $this->getEmail(),
+            "telephone" => $this->getTelephone(),
+            "adressePostale" => $this->getAdresse(),
         ];
     }
 

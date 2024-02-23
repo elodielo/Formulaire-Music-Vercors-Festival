@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include './includes/header.php' ?>
 
 <form action="traitement.php" id="inscription" method="POST">
@@ -52,7 +53,7 @@ include './includes/header.php' ?>
         </section>
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
-      <p class="bouton" onclick="suivant('option')">Suivant</p>
+      <p class="bouton" id="btnSuivant1">Suivant</p>
     </fieldset>
     <fieldset id="options">
       <legend>Options</legend>
@@ -77,11 +78,11 @@ include './includes/header.php' ?>
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui"><label for="enfantsOui">Oui</label>
-      <input type="checkbox" name="enfantsNon"><label for="enfantsNon">Non</label>
+      <input type="checkbox" name="enfantsOui" id="enfantsOui"><label for="enfantsOui">Oui</label>
+      <!-- <input type="checkbox" name="enfantsNon" id="enfantsNon"><label for="enfantsNon">Non</label> -->
 
       <!-- Si oui, afficher : -->
-      <section>
+      <section id="divCasquesEnfants" class="invisible">
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
         <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">

@@ -11,11 +11,12 @@
 .bouton {
     display: flex;
     justify-content: center;
-    border: 2px solid #030303;
     width:51%;
     border-radius: 10px;
-    padding: 10px;
     margin-top: 3px;
+    border: 2px solid #dc8d32;
+    margin: 5%;
+    padding: 2%;
 }
 
 #options {

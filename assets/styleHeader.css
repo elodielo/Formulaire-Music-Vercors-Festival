@@ -3,7 +3,7 @@
 }
 
 #enTete{
-    background-color: beige;
+    background-image:url('../images/fond.png');
 }
 
 .flexLigne{
@@ -27,3 +27,25 @@
     text-decoration: none;
     color: white;
   }
+
+
+  #recapResaDiv{
+    flex-direction: column;
+    border: 2px solid green;
+    display: flex;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 2%;
+    z-index: 2;
+    width: 50%;
+    background-color: beige;
+  }
+
+  body{
+    background-color: #fae5bf;
+}
+
+#coordonnees label{
+    display: block;
+}
+

@@ -1,11 +1,11 @@
 <?php 
-
+session_start();
 require './class/Client.php';
 require './class/Reservations.php';
 require './class/dataBase.php';
 include './class/Db.php';
 
-var_dump($_POST);
+// var_dump($_POST);
 
 if (isset($_POST['nombrePlaces'])
 &&  isset($_POST['nom']) 
@@ -105,15 +105,33 @@ if (isset($_POST['nombrePlaces'])
 
     $reservation = new Reservation($nbrReservation, $tarif, $joursChoisis,$nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges);
      $client = new Client($nom, $prenom, $email, $telephone, $adresse); 
-    $reservation->calculPrixFestival();
+    
+    $prixTotal = $reservation->calculPrixFestival();
     $dataBaseClient = new Database();
     $dataBaseResa = new Db('./csv/reservation.csv');
-    var_dump($tarif);
-    var_dump($client);
-    var_dump($reservation);
+    // var_dump($tarif);
+    // var_dump($client);
+    // var_dump($reservation);
+    $nomEncoded = urlencode($nom);
+$prenomEncoded = urlencode($prenom);
+$emailEncoded = urlencode($email);
+$telephoneEncoded = urlencode($telephone);
+$adresseEncoded = urlencode($adresse);
+$nbrReservationEncoded = urlencode($nbrReservation);
+$tarifEncoded = urlencode($tarif);
+$joursChoisisEncoded = urlencode($joursChoisis);
+$nbrTentesEncoded = urlencode($nbrTentes);
+$nbrCamionsEncoded = urlencode($nbrCamions);
+$nbrEnfantsEncoded = urlencode($nbrEnfants);
+$nbrCasquesEncoded = urlencode($nbrCasques);
+$nbrLugesEncoded = urlencode($nbrLuges);
+$prixTotalReservationEncoded = urlencode($prixTotalReservation);
+
     $SaveClient = $dataBaseClient->enregistrerClient($client);
     $csvResa = $dataBaseResa->openCsv();
     $saveReservation = $dataBaseResa->writeIntoCsv($csvResa, $reservation->ValeursReservationsDansTableau());
-  
-      // var_dump($client);
+    // header('location:./includes/recapResa.php?prenom=' .$prenom );
+    $redirectURL = "./includes/recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotalReservation=$prixTotalReservationEncoded";
+    header("Location: $redirectURL");
+    // var_dump($client);
   }

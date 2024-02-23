@@ -98,11 +98,9 @@ bouton2jours.addEventListener("click", (event) => {
 
 bouton2joursReduits.addEventListener("click", (event) => {
     if(bouton2joursReduits.checked){
-    console.log('coucou');
     pass2joursDate.classList.replace("invisible", "visible")}
   else{pass2joursDate.classList.replace("visible", "invisible")}
 });
-
 
 // Si pass1jourCoché :
 bouton1jour.addEventListener("click", (event) => {
@@ -138,8 +136,77 @@ bouton3jours.addEventListener("click", (event) => {
   }
 });
 
+let btnEnfantOui = document.getElementById("enfantsOui");
+let btnEnfantNon = document.getElementById("enfantsNon");
+let sectionCasque = document.getElementById("divCasquesEnfants")
 
+btnEnfantOui.addEventListener("change", (event) => {
+  if(btnEnfantOui.checked){
+  sectionCasque.classList.replace("invisible", "visible")
+  }
+else{
+  sectionCasque.classList.replace("visible", "invisible")
+}}
+);
 
+// Pour les tentes : 
+let btntenteNuit1 = document.getElementById("tenteNuit1")
+let btntenteNuit2 = document.getElementById("tenteNuit2")
+let btntenteNuit3 = document.getElementById("tenteNuit3")
+let btntente3Nuits = document.getElementById("tente3Nuits")
+
+btntente3Nuits.addEventListener("click", (event) => {
+  if(btntente3Nuits.checked){  
+    btntenteNuit1.disabled = true;
+    btntenteNuit2.disabled = true;
+    btntenteNuit3.disabled = true;
+    btntenteNuit1.checked = false;
+    btntenteNuit2.checked = false;
+    btntenteNuit3.checked = false;
+
+  }
+  if(btntente3Nuits.checked == false){
+    btntenteNuit1.disabled = false;
+    btntenteNuit2.disabled = false;
+    btntenteNuit3.disabled = false;
+  }
+});
+
+//Pour les vans :
+let btnvanNuit1 = document.getElementById("vanNuit1")
+let btnvanNuit2 = document.getElementById("vanNuit2")
+let btnvanNuit3 = document.getElementById("vanNuit3")
+let btnvan3Nuits = document.getElementById("van3Nuits")
+
+btnvan3Nuits.addEventListener("click", (event) => {
+  if(btnvan3Nuits.checked){  
+    btnvanNuit1.disabled = true;
+    btnvanNuit2.disabled = true;
+    btnvanNuit3.disabled = true;
+    btnvanNuit1.checked = false;
+    btnvanNuit2.checked = false;
+    btnvanNuit3.checked = false;
+
+  }
+  if(btnvan3Nuits.checked == false){
+    btnvanNuit1.disabled = false;
+    btnvanNuit2.disabled = false;
+    btnvanNuit3.disabled = false;
+  }
+});
+
+let btnSuivant1 = document.getElementById("btnSuivant1")
+//verifier les champs
+btnSuivant1.addEventListener("click",verifierFormulaire);
+function verifierFormulaire(){
+  let nbrResa = document.getElementById("NombrePlaces")
+  if (nbrResa.value === ""){
+    alert("Veuillez renseigner un nombre de réservation");
+         }
+  else {
+    suivant('option');
+  }
+} 
 // function verifierFormulaire{
 //   let nom = document.getElementById('nom').value;
 //   let prenom = document.getElementById('prenom').value;

@@ -2,8 +2,9 @@
 session_start();
 require './class/Client.php';
 require './class/Reservations.php';
-require './class/dataBase.php';
+
 include './class/Db.php';
+ require './class/Database.php';
 
 // var_dump($_POST);
 
@@ -134,4 +135,11 @@ $prixTotalReservationEncoded = urlencode($prixTotalReservation);
     $redirectURL = "./includes/recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotalReservation=$prixTotalReservationEncoded";
     header("Location: $redirectURL");
     // var_dump($client);
+    $Database = new Database ();
+     $reservation->calculPrixFestival();
+    var_dump($tarif);
+    var_dump($client);
+    var_dump($reservation);
+    $SaveClient = $Database->enregistrerClient($client);
+     var_dump($client);
   }

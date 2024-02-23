@@ -7,17 +7,23 @@ class Client{
     private $telephone;
     private $adresse;
 
-    function __construct($nom, $prenom, $email, $telephone, $adresse,int|string $id = "à créer")
+    function __construct($nom, $prenom, $email, $telephone, $adresse, $id = null)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->telephone = $telephone;
         $this->adresse = $adresse;
-        $this->setId($id);
+        if ($id === null) {
+            $this ->_id = $this -> gererUniqueId();
+        } else { 
+            $this ->_id = $id;
+        }
     }
 
-
+    private function gererUniqueId() {
+        return uniqid();
+    }
     function getNom(){
         return $this->nom;
     }
@@ -90,7 +96,6 @@ class Client{
             }
             return $i;
           }
-    
 
     
     function ValeursClientsDansTableau(){

@@ -80,7 +80,7 @@ class Reservation{
 
     function calculPrixFestival(){
         $PrixTotal = ($this->nbrReservation*$this->tarif + $this->nbrTentes+ $this->nbrCamions+ $this->nbrCasques);
-        echo($PrixTotal);
+        return $PrixTotal;
     }
     
     function ValeursReservationsDansTableau(){

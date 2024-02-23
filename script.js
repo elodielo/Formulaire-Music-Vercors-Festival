@@ -8,8 +8,13 @@ let bouton1jour = document.getElementById("pass1jour");
 let bouton2jours = document.getElementById("pass2jours");
 let bouton3jours = document.getElementById("pass3jours");
 let bouton1jourReduit = document.getElementById("pass1jourreduit")
-let bouton2joursReduits = document.getElementById("pass2joursreduit")
-
+let bouton2joursReduit = document.getElementById("pass2joursreduit")
+let bouton3joursReduit = document.getElementById("pass3joursreduit");
+let choixJour1 = document.getElementById("choixJour1");
+let choixJour2 = document.getElementById("choixJour2");
+let choixJour3 = document.getElementById("choixJour3");
+let choixJour12 = document.getElementById("choixJour12");
+let choixJour23 = document.getElementById("choixJour23");
 
 let reserv = document.getElementById('reservation');
 let option = document.getElementById('options');
@@ -96,8 +101,8 @@ bouton2jours.addEventListener("click", (event) => {
   else{pass2joursDate.classList.replace("visible","invisible")}
 });
 
-bouton2joursReduits.addEventListener("click", (event) => {
-    if(bouton2joursReduits.checked){
+bouton2joursReduit.addEventListener("click", (event) => {
+    if(bouton2joursReduit.checked){
     pass2joursDate.classList.replace("invisible", "visible")}
   else{pass2joursDate.classList.replace("visible", "invisible")}
 });
@@ -114,6 +119,17 @@ bouton1jour.addEventListener("click", (event) => {
   }
 });
 
+bouton1jourReduit.addEventListener("click", (event) => {
+  if(bouton1jourReduit.checked){  
+    bouton2joursReduit.disabled = true;
+    bouton3joursReduit.disabled = true;
+  }
+  if(bouton1jourReduit.checked == false){
+    bouton2joursReduit.disabled = false;
+    bouton3joursReduit.disabled = false;
+  }
+});
+
 bouton2jours.addEventListener("click", (event) => {
   if(bouton2jours.checked){  
     bouton1jour.disabled = true;
@@ -125,6 +141,17 @@ bouton2jours.addEventListener("click", (event) => {
   }
 });
 
+bouton2joursReduit.addEventListener("click", (event) => {
+  if(bouton2joursReduit.checked){  
+    bouton1jourReduit.disabled = true;
+    bouton3joursReduit.disabled = true;
+  }
+  if(bouton2joursReduit.checked == false){
+    bouton1jourReduit.disabled = false;
+    bouton3joursReduit.disabled = false;
+  }
+});
+
 bouton3jours.addEventListener("click", (event) => {
   if(bouton3jours.checked){  
     bouton1jour.disabled = true;
@@ -133,6 +160,17 @@ bouton3jours.addEventListener("click", (event) => {
   if(bouton3jours.checked == false){
     bouton1jour.disabled = false;
     bouton2jours.disabled = false;
+  }
+});
+
+bouton3joursReduit.addEventListener("click", (event) => {
+  if(bouton3joursReduit.checked){  
+    bouton1jourReduit.disabled = true;
+    bouton2joursReduit.disabled = true;
+  }
+  if(bouton3joursReduit.checked == false){
+    bouton1jourReduit.disabled = false;
+    bouton2joursReduit.disabled = false;
   }
 });
 
@@ -193,6 +231,58 @@ btnvan3Nuits.addEventListener("click", (event) => {
     btnvanNuit2.disabled = false;
     btnvanNuit3.disabled = false;
   }
+});
+
+
+choixJour1.addEventListener("click", (event) => {
+  if(choixJour1.checked){  
+    choixJour2.disabled = true;
+    choixJour3.disabled = true;
+  }
+  if(choixJour1.checked == false){
+    choixJour2.disabled = false;
+    choixJour3.disabled = false;
+  }
+});
+
+choixJour2.addEventListener("click", (event) => {
+  if(choixJour2.checked){  
+    choixJour1.disabled = true;
+    choixJour3.disabled = true;
+  }
+  if(choixJour2.checked == false){
+    choixJour1.disabled = false;
+    choixJour3.disabled = false;
+  }
+});
+
+choixJour3.addEventListener("click", (event) => {
+  if(choixJour3.checked){  
+    choixJour1.disabled = true;
+    choixJour2.disabled = true;
+  }
+  if(choixJour3.checked == false){
+    choixJour1.disabled = false;
+    choixJour2.disabled = false;
+  }
+});
+
+choixJour12.addEventListener("click", (event) => {
+  if(choixJour12.checked){  
+    choixJour23.disabled = true;
+  }
+  if(choixJour12.checked == false){
+    choixJour23.disabled = false;
+      }
+});
+
+choixJour23.addEventListener("click", (event) => {
+  if(choixJour23.checked){  
+    choixJour12.disabled = true;
+  }
+  if(choixJour23.checked == false){
+    choixJour12.disabled = false;
+      }
 });
 
 let btnSuivant1 = document.getElementById("btnSuivant1")

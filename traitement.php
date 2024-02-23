@@ -126,20 +126,13 @@ $nbrCamionsEncoded = urlencode($nbrCamions);
 $nbrEnfantsEncoded = urlencode($nbrEnfants);
 $nbrCasquesEncoded = urlencode($nbrCasques);
 $nbrLugesEncoded = urlencode($nbrLuges);
-$prixTotalReservationEncoded = urlencode($prixTotalReservation);
 
     $SaveClient = $dataBaseClient->enregistrerClient($client);
     $csvResa = $dataBaseResa->openCsv();
     $saveReservation = $dataBaseResa->writeIntoCsv($csvResa, $reservation->ValeursReservationsDansTableau());
     // header('location:./includes/recapResa.php?prenom=' .$prenom );
-    $redirectURL = "./includes/recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotalReservation=$prixTotalReservationEncoded";
+    $redirectURL = "./includes/recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotal=$prixTotal";
     header("Location: $redirectURL");
-    // var_dump($client);
-    $Database = new Database ();
-     $reservation->calculPrixFestival();
-    var_dump($tarif);
-    var_dump($client);
-    var_dump($reservation);
-    $SaveClient = $Database->enregistrerClient($client);
-     var_dump($client);
+   
+
   }

@@ -8,7 +8,7 @@ require '../class/Reservations.php';
 <div id="recapResaDiv">
     <h2> Votre Réservation </h2>
     <p> Bonjour <?php echo $_GET['nom'] ?></p>
-    <p>La reservation a bien été effectuée</p>
+    <p>La reservation a bien été effectuée !</p>
     <p>Voici le récapitulatif : </p>
     <ul>
         <li> Nombre de personnes : <?php echo $_GET['nbrReservation'] ?> </li>
@@ -18,5 +18,5 @@ require '../class/Reservations.php';
         <li> Prix pour les casques : <?php echo $_GET['nbrCasques'] ?> </li>
         <li> Nombre de luges: <?php echo $_GET['nbrLuges'] ?> </li>
     </ul>
-    <p> Le tout pour la somme de : <?php echo $_GET['tarif'] ?></p>
+    <p> Le tout pour la somme de : <?php echo $_GET['prixTotal'] ?> euros !</p>
 </div>

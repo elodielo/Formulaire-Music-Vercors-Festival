@@ -2,8 +2,7 @@
 
 class Reservation{
     private $nbrReservation;
-    private $tarif; // reduit ou pas 
-    // private $nbrJours;
+    private $tarif;
     private $joursChoisis;
     private $nbrTentes;
     private $nbrCamions;
@@ -14,7 +13,6 @@ class Reservation{
     function __construct($nbrReservation, $tarif ,$joursChoisis, $nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges){
         $this->nbrReservation = $nbrReservation;
         $this->tarif = $tarif;
-        // $nbrJours = $this->nbrJours;
         $this->joursChoisis = $joursChoisis;
         $this->nbrTentes = $nbrTentes;
         $this->nbrCamions = $nbrCamions;
@@ -35,12 +33,7 @@ class Reservation{
     function setTarif($tarif){
         $this->tarif = $tarif;
     }
-    // function getnbrJours(){
-    //     return $this->nbrJours;
-    // }    
-    // function setnbrJours($nbrJours){
-    //     $this->nbrJours = $nbrJours;
-    // }
+  
     function getjoursChoisis(){
         return $this->joursChoisis;
     }    

@@ -2,11 +2,8 @@
 session_start();
 require './class/Client.php';
 require './class/Reservations.php';
-
 include './class/Db.php';
- require './class/Database.php';
-
-// var_dump($_POST);
+require './class/Database.php';
 
 if (isset($_POST['nombrePlaces'])
 &&  isset($_POST['nom']) 
@@ -16,29 +13,26 @@ if (isset($_POST['nombrePlaces'])
 && isset($_POST['adressePostale'])){
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
-    // $nbrReservation = (int)$_POST['nombrePlaces'];
-    // $nombrePlaces = (int)$nombrePlacesEcrites;
-    $telephone = $_POST['telephone'];
-    $adresse = $_POST['adressePostale'];
+    $nbrReservation = (int)$_POST['nombrePlaces'];
+    $adresse = htmlspecialchars($_POST['adressePostale']);
     $tarif= 0;
     $nbrTentes=0;
     $nbrCamions= 0;
     $nbrCasques = (int)$_POST['nombreCasquesEnfants']*2;
-    $nbrLuges = $_POST['NombreLugesEte'];
+    $nbrLuges = (int)$_POST['NombreLugesEte'];
     $joursChoisis ="";
     $nbrEnfants= "non";
 
-    if (filter_var($_POST['telephone'], FILTER_VALIDATE_INT)) {
+    if (filter_var($_POST['telephone'], FILTER_SANITIZE_NUMBER_INT)) {
       $telephone = ($_POST['telephone']);
-      var_dump($telephone);
-    }else {
-      header('location:../index.php?erreur=');
+      }else {
+      header('location:index.php?erreur=invalid_telephone');
     }
 
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $email = htmlspecialchars($_POST['email']);
       }else {
-        header('location:../index.php?erreur=');
+        header('location:index.php?erreur=invalid_email');
       }
 
 
@@ -104,16 +98,13 @@ if (isset($_POST['nombrePlaces'])
       $nbrEnfants = "non";
     }
 
-    $reservation = new Reservation($nbrReservation, $tarif, $joursChoisis,$nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges);
-     $client = new Client($nom, $prenom, $email, $telephone, $adresse); 
+$reservation = new Reservation($nbrReservation, $tarif, $joursChoisis,$nbrTentes, $nbrCamions, $nbrEnfants, $nbrCasques, $nbrLuges);
+$client = new Client($nom, $prenom, $email, $telephone, $adresse); 
     
-    $prixTotal = $reservation->calculPrixFestival();
-    $dataBaseClient = new Database();
-    $dataBaseResa = new Db('./csv/reservation.csv');
-    // var_dump($tarif);
-    // var_dump($client);
-    // var_dump($reservation);
-    $nomEncoded = urlencode($nom);
+$prixTotal = $reservation->calculPrixFestival();
+$dataBaseClient = new Database();
+$dataBaseResa = new Db('./csv/reservation.csv');
+$nomEncoded = urlencode($nom);
 $prenomEncoded = urlencode($prenom);
 $emailEncoded = urlencode($email);
 $telephoneEncoded = urlencode($telephone);
@@ -127,12 +118,9 @@ $nbrEnfantsEncoded = urlencode($nbrEnfants);
 $nbrCasquesEncoded = urlencode($nbrCasques);
 $nbrLugesEncoded = urlencode($nbrLuges);
 
-    $SaveClient = $dataBaseClient->enregistrerClient($client);
-    $csvResa = $dataBaseResa->openCsv();
-    $saveReservation = $dataBaseResa->writeIntoCsv($csvResa, $reservation->ValeursReservationsDansTableau());
-    // header('location:./includes/recapResa.php?prenom=' .$prenom );
-    $redirectURL = "./includes/recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotal=$prixTotal";
-    header("Location: $redirectURL");
-   
-
+$SaveClient = $dataBaseClient->enregistrerClient($client);
+$csvResa = $dataBaseResa->openCsv();
+$saveReservation = $dataBaseResa->writeIntoCsv($csvResa, $reservation->ValeursReservationsDansTableau());
+$redirectURL = "recapResa.php?nom=$nomEncoded&prenom=$prenomEncoded&email=$emailEncoded&telephone=$telephoneEncoded&adresse=$adresseEncoded&nbrReservation=$nbrReservationEncoded&tarif=$tarifEncoded&joursChoisis=$joursChoisisEncoded&nbrTentes=$nbrTentesEncoded&nbrCamions=$nbrCamionsEncoded&nbrEnfants=$nbrEnfantsEncoded&nbrCasques=$nbrCasquesEncoded&nbrLuges=$nbrLugesEncoded&prixTotal=$prixTotal";
+header("Location: $redirectURL");
   }

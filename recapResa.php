@@ -1,8 +1,8 @@
 <?php 
 session_start();
-include './header.php';
-require '../class/Client.php';
-require '../class/Reservations.php';
+include './includes/header.php';
+require './class/Client.php';
+require './class/Reservations.php';
 ?>
 
 <div id="recapResaDiv">

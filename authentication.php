@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['nom']) && !empty($_POST['email']) &&
 
       $_SESSION['connecté'] = TRUE;
       $_SESSION['user'] = serialize($userAvecCeMail);
-      header('location: ./includes/recapResa.php');
+      header('location: ./recapResa.php');
       die;
     
   }

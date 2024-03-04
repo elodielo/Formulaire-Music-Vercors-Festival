@@ -6,7 +6,7 @@ include './includes/header.php' ?>
     <fieldset id="reservation">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
-      <input type="number" name="nombrePlaces" id="NombrePlaces" required>
+      <input type="number" name="nombrePlaces" id="NombrePlaces" value="1" required>
       <h3>Réservation(s) en tarif réduit</h3>
       <input type="checkbox" name="tarifReduit" id="tarifReduit">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>

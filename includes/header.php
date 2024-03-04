@@ -18,7 +18,7 @@
       <?php if (isset($_SESSION['connecté'])) { ?>
         <a href="./includes/deconnexion.php">Déconnexion</a>
       <?php } else { ?>
-        <a href="./includes/admin.php">Admin</a>
+        <a href="admin.php">Admin</a>
         <a href="connexion.php">Connexion</a>
       <?php } ?>
     </div>

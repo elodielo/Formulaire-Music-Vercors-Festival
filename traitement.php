@@ -14,12 +14,11 @@ if (isset($_POST['nombrePlaces'])
 && isset($_POST['email']) 
 && isset($_POST['telephone']) 
 && isset($_POST['adressePostale'])){
-  var_dump('hello');
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
     $nbrReservation = (int)$_POST['nombrePlaces'];
     // $nombrePlaces = (int)$nombrePlacesEcrites;
-    $telephone = $_POST['telephone'];
+    // $telephone = $_POST['telephone'];
     $adresse = $_POST['adressePostale'];
     $tarif= 0;
     $nbrTentes=0;
@@ -29,11 +28,12 @@ if (isset($_POST['nombrePlaces'])
     $joursChoisis ="";
     $nbrEnfants= "non";
 
-    // if (filter_var($_POST['telephone'], FILTER_VALIDATE_INT)) {
-    //   $email = htmlspecialchars($_POST['telephone']);
-    // }else {
-    //   header('location:../index.php?erreur=');
-    // }
+    if (filter_var($_POST['telephone'], FILTER_VALIDATE_INT)) {
+      $telephone = htmlspecialchars($_POST['telephone']);
+      var_dump($telephone);
+    }else {
+      header('location:../index.php?erreur=');
+    }
 
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $email = htmlspecialchars($_POST['email']);

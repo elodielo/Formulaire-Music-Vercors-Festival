@@ -16,6 +16,10 @@
 
 .visible{
     display: block;
+    display: flex;
+    gap: 12px;
+    margin: 15px;
+    text-align: center;
 }
 #header a {
     margin: 10px;
@@ -49,3 +53,19 @@
     display: block;
 }
 
+
+h1{
+ animation-name: grand;
+ animation-duration: 3s;
+ font-size: 4em; 
+ color: #914343;  
+}
+
+@keyframes grand {
+    0%{
+        font-size: 1em;
+    }
+    100%{
+        font-size: 4em;
+    }
+}

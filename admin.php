@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password = $_POST['password'];
 
@@ -8,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if ($password === "1234"){
         $_SESSION['autorise'] = true;
-        header('location: AdminLogin.php'); 
+        header('location: ./includes/AdminLogin.php'); 
 
         exit();
     } else {

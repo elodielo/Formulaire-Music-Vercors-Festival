@@ -34,6 +34,7 @@ button[1].addEventListener("click", (event) => {
 });
 
 function Reservation() {
+  
     reserv.style.display = 'inline-block'
     option.style.display = 'none';
     coordonnee.style.display = 'none';
@@ -71,10 +72,31 @@ document.getElementById("nombreCasquesEnfants").addEventListener("change", funct
 boutonTarifReduit.addEventListener("click", (event) => {
   if(boutonTarifReduit.checked){
   tarifReduitdiv.classList.replace("invisible", "visible")
-  tarifNormal.classList.replace("visible", "invisible")}
+  tarifNormal.classList.replace("visible", "invisible")
+  pass2joursDate.classList.replace("visible", "invisible")
+  pass1jourDate.classList.replace("visible", "invisible")
+  bouton1jour.checked = false;
+  bouton2jours.checked = false;
+  bouton3jours.checked = false;
+  choixJour1.checked = false;
+  choixJour2.checked = false;
+  choixJour3.checked = false;
+  choixJour12.checked = false;
+  choixJour23.checked = false;
+}
 else{
   tarifReduitdiv.classList.replace("visible", "invisible")
   tarifNormal.classList.replace("invisible", "visible")
+  pass2joursDate.classList.replace("visible", "invisible")
+  pass1jourDate.classList.replace("visible", "invisible") 
+  bouton1jourReduit.checked = false;
+  bouton2joursReduit.checked = false;
+  bouton3joursReduit.checked = false;
+  choixJour1.checked = false;
+  choixJour2.checked = false;
+  choixJour3.checked = false;
+  choixJour12.checked = false;
+  choixJour23.checked = false;
 }}
 );
 
@@ -110,67 +132,51 @@ bouton2joursReduit.addEventListener("click", (event) => {
 // Si pass1jourCoché :
 bouton1jour.addEventListener("click", (event) => {
   if(bouton1jour.checked){  
-    bouton2jours.disabled = true;
-    bouton3jours.disabled = true;
-  }
-  if(bouton1jour.checked == false){
-    bouton2jours.disabled = false;
-    bouton3jours.disabled = false;
+    bouton2jours.checked = false;
+    bouton3jours.checked = false;
+    pass2joursDate.classList.replace("visible","invisible")
   }
 });
 
 bouton1jourReduit.addEventListener("click", (event) => {
   if(bouton1jourReduit.checked){  
-    bouton2joursReduit.disabled = true;
-    bouton3joursReduit.disabled = true;
-  }
-  if(bouton1jourReduit.checked == false){
-    bouton2joursReduit.disabled = false;
-    bouton3joursReduit.disabled = false;
+    bouton2joursReduit.checked = false;
+    bouton3joursReduit.checked = false;
+    pass2joursDate.classList.replace("visible", "invisible")
   }
 });
 
 bouton2jours.addEventListener("click", (event) => {
   if(bouton2jours.checked){  
-    bouton1jour.disabled = true;
-    bouton3jours.disabled = true;
-  }
-  if(bouton2jours.checked == false){
-    bouton1jour.disabled = false;
-    bouton3jours.disabled = false;
+    bouton1jour.checked = false;
+    bouton3jours.checked = false;
+    pass1jourDate.classList.replace("visible", "invisible");
   }
 });
 
 bouton2joursReduit.addEventListener("click", (event) => {
   if(bouton2joursReduit.checked){  
-    bouton1jourReduit.disabled = true;
-    bouton3joursReduit.disabled = true;
-  }
-  if(bouton2joursReduit.checked == false){
-    bouton1jourReduit.disabled = false;
-    bouton3joursReduit.disabled = false;
+    bouton1jourReduit.checked = false;
+    bouton3joursReduit.checked = false;
+    pass1jourDate.classList.replace("visible", "invisible")
   }
 });
 
 bouton3jours.addEventListener("click", (event) => {
   if(bouton3jours.checked){  
-    bouton1jour.disabled = true;
-    bouton2jours.disabled = true;
-  }
-  if(bouton3jours.checked == false){
-    bouton1jour.disabled = false;
-    bouton2jours.disabled = false;
+    bouton1jour.checked = false;
+    bouton2jours.checked = false;
+    pass1jourDate.classList.replace("visible", "invisible");
+    pass2joursDate.classList.replace("visible","invisible")
   }
 });
 
 bouton3joursReduit.addEventListener("click", (event) => {
   if(bouton3joursReduit.checked){  
-    bouton1jourReduit.disabled = true;
-    bouton2joursReduit.disabled = true;
-  }
-  if(bouton3joursReduit.checked == false){
-    bouton1jourReduit.disabled = false;
-    bouton2joursReduit.disabled = false;
+    bouton1jourReduit.checked = false;
+    bouton2joursReduit.checked = false;
+    pass2joursDate.classList.replace("visible", "invisible")
+    pass1jourDate.classList.replace("visible", "invisible")  
   }
 });
 
@@ -236,67 +242,38 @@ btnvan3Nuits.addEventListener("click", (event) => {
 
 choixJour1.addEventListener("click", (event) => {
   if(choixJour1.checked){  
-    choixJour2.disabled = true;
-    choixJour3.disabled = true;
-  }
-  if(choixJour1.checked == false){
-    choixJour2.disabled = false;
-    choixJour3.disabled = false;
+    choixJour2.checked = false;
+    choixJour3.checked = false;
   }
 });
 
 choixJour2.addEventListener("click", (event) => {
   if(choixJour2.checked){  
-    choixJour1.disabled = true;
-    choixJour3.disabled = true;
-  }
-  if(choixJour2.checked == false){
-    choixJour1.disabled = false;
-    choixJour3.disabled = false;
+    choixJour1.checked = false;
+    choixJour3.checked = false;
   }
 });
 
 choixJour3.addEventListener("click", (event) => {
   if(choixJour3.checked){  
-    choixJour1.disabled = true;
-    choixJour2.disabled = true;
-  }
-  if(choixJour3.checked == false){
-    choixJour1.disabled = false;
-    choixJour2.disabled = false;
+    choixJour1.checked = false;
+    choixJour2.checked = false;
   }
 });
 
 choixJour12.addEventListener("click", (event) => {
   if(choixJour12.checked){  
-    choixJour23.disabled = true;
+    choixJour23.checked = false;
   }
-  if(choixJour12.checked == false){
-    choixJour23.disabled = false;
-      }
 });
 
 choixJour23.addEventListener("click", (event) => {
   if(choixJour23.checked){  
-    choixJour12.disabled = true;
+    choixJour12.checked = false;
   }
-  if(choixJour23.checked == false){
-    choixJour12.disabled = false;
-      }
 });
 
-let btnSuivant1 = document.getElementById("btnSuivant1")
-//verifier les champs
-btnSuivant1.addEventListener("click",verifierFormulaire);
-function verifierFormulaire(){
-  let nbrResa = document.getElementById("NombrePlaces")
-  if (nbrResa.value === ""){
-    alert("Veuillez renseigner un nombre de réservation");
-         }
-  else {
-    suivant('option');
-  }
-} 
+
 // function verifierFormulaire{
 //   let nom = document.getElementById('nom').value;
 //   let prenom = document.getElementById('prenom').value;

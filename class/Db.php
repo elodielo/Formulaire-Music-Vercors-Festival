@@ -2,7 +2,7 @@
 class Db {
     private $pathToCsv;
 
-     function __construct($pathToCsv = "./db.csv") {
+     function __construct($pathToCsv = "../csv/reservation.csv") {
         $this->pathToCsv = $pathToCsv;
     }
 

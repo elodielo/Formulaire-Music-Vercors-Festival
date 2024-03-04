@@ -32,6 +32,17 @@
     color: white;
   }
 
+  .tableau-utilisateurs {
+    text-align: center;
+}
+
+.tableau-utilisateurs td{
+padding: 12px;
+border: 2px solid lightgrey;}
+
+.tableau-utilisateurs h2{
+    border: 8px solid lightgrey;
+}
 
   #recapResaDiv{
     flex-direction: column;
@@ -52,7 +63,6 @@
 #coordonnees label{
     display: block;
 }
-
 
 h1{
  animation-name: grand;

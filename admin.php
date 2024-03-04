@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include './includes/header.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 
 <form action= '<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>' method="post" >
-    <h1>Panel administrateur </h1>
+    <h2>Panel administrateur </h2>
   
    
     <label for="password">Mot de passe :</label>

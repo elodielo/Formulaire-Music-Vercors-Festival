@@ -19,7 +19,7 @@ if (isset($_GET['erreur'])) {
 include "includes/header.php";
 ?>
   <form action="src/authentication.php" method="post" onsubmit=" return ValidationConnexion()">
-    <h1>Connexion</h1>
+    <h2>Connexion</h2>
     <?php if ($succes) { ?>
       <div class="message succes">
         Votre réservation est validée !
